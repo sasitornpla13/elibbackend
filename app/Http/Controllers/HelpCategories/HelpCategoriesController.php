@@ -25,7 +25,7 @@ class HelpCategoriesController extends BaseController
     }
     public function getHelpCategoriesById($id){
   
-        $result =   Topics::find($id);
+        $result =   HelpCategoriesgit::find($id);
         return response()->json($result);
     }
     public function updateHelpCategories(Request $request)
