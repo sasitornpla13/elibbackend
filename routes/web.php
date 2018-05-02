@@ -41,26 +41,28 @@ $router->get('/showListTopic/{id:[0-9]+}', 'Topics\TopicsController@getTopicsByI
 
 // Collection
 $router->get('/showListCollection', 'Collection\CollectionController@getCollectionsList');
+$router->get('/showListCollection/{id:[0-9]+}', 'Collection\CollectionController@getCollectionById');
 $router->post('/collection/create', 'Collection\CollectionController@newCollection');
 $router->post('/collection/update', 'Collection\CollectionController@updateCollection');
 $router->delete('/collection/delete/{id:[0-9]+}', 'Collection\CollectionController@deleteCollection');
 
 // GMSCountry
 $router->get('/showListCountry', 'GMSCountry\GMSCountryController@getCountryList');
+$router->get('/showListCountry/{id:[0-9]+}', 'GMSCountry\GMSCountryController@getCountryById');
 $router->post('/country/create', 'GMSCountry\GMSCountryController@newCountry');
 $router->post('/country/update', 'GMSCountry\GMSCountryController@updateCountry');
 $router->delete('/country/delete/{id:[0-9]+}', 'GMSCountry\GMSCountryController@deleteCountry');
 
 // Help Categories
 $router->get('/showListHelpCategories', 'HelpCategories\HelpCategoriesController@getHelpCategoriesList');
-$router->post('/helpCategories/create', 'HelpCategories\HelpCategoriesController@newHelpCategories');
 $router->get('/showListHelpCategories/{id:[0-9]+}', 'HelpCategories\HelpCategoriesController@getHelpCategoriesById');
-
+$router->post('/helpCategories/create', 'HelpCategories\HelpCategoriesController@newHelpCategories');
 $router->post('/helpCategories/update', 'HelpCategories\HelpCategoriesController@updateHelpCategories');
 $router->delete('/helpCategories/delete/{id:[0-9]+}', 'HelpCategories\HelpCategoriesController@deleteHelpCategories');
 
 // Help Content
 $router->get('/showListHelpContent', 'HelpContent\HelpContentController@getHelpContentList');
+$router->get('/showListHelpContent/{id:[0-9]+}', 'HelpContent\HelpContentController@getHelpContentById');
 $router->post('/helpContent/create', 'HelpContent\HelpContentController@newHelpContent');
 $router->post('/helpContent/update', 'HelpContent\HelpContentController@updateHelpContent');
 $router->delete('/helpContent/delete/{id:[0-9]+}', 'HelpContent\HelpContentController@deleteHelpContent');

@@ -15,6 +15,12 @@ class CollectionController extends BaseController
         return response()->json($result_collections);
     }
 
+    public function getCollectionById($id)
+    {
+        $result_collection_id = Collections::find($id);
+        return response()->json($result_collection_id);
+    }
+
     public function newCollection(Request $request)
     {
         $newResult = new Collections;

@@ -15,6 +15,12 @@ class HelpContentController extends BaseController
         return response()->json($result_helpContent);
     }
 
+    public function getHelpContentById($id)
+    {
+        $result_helpContent_id = HelpContent::find($id);
+        return response()->json($result_helpContent_id);
+    }
+
     public function newHelpContent(Request $request)
     {
         $newResult = new HelpContent;
