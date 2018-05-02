@@ -10,7 +10,8 @@ class GMSCountryController extends BaseController
 {
     public function getCountryList()
     {
-        $result_country = Country::all();
+        // $result_country = Country::all();
+        $result_country = Country::where('status', 1)->get();
         return response()->json($result_country);
     }
 
@@ -33,7 +34,10 @@ class GMSCountryController extends BaseController
 
     public function deleteCountry($id)
     {
-        $result_country_id = Country::where('id', '=', $id)->delete();
+        // $result_country_id = Country::where('id', '=', $id)->delete();
+        $result_country_id = Country::find($id);
+        $result_country_id->status = 0;
+        $result_country_id->save();
         return response()->json('200');
     }
 

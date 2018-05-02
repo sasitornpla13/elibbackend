@@ -10,7 +10,8 @@ class HelpCategoriesController extends BaseController
 {
     public function getHelpCategoriesList()
     {
-        $result_helpCategories = HelpCategories::all();
+        // $result_helpCategories = HelpCategories::all();
+        $result_helpCategories = HelpCategories::where('status', 1)->get();
         return response()->json($result_helpCategories);
     }
 
@@ -33,7 +34,10 @@ class HelpCategoriesController extends BaseController
 
     public function deleteHelpCategories($id)
     {
-        $result_helpCategories_id = HelpCategories::where('id', '=', $id)->delete();
+        // $result_helpCategories_id = HelpCategories::where('id', '=', $id)->delete();
+        $result_helpCategories_id = HelpCategories::find($id);
+        $result_helpCategories_id->status = 0;
+        $result_helpCategories_id->save();
         return response()->json('200');
     }
 
