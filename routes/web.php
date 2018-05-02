@@ -41,12 +41,14 @@ $router->get('/showListTopic/{id:[0-9]+}', 'Topics\TopicsController@getTopicsByI
 
 // Collection
 $router->get('/showListCollection', 'Collection\CollectionController@getCollectionsList');
+$router->get('/showListCollection/{id:[0-9]+}', 'Collection\CollectionController@getCollectionById');
 $router->post('/collection/create', 'Collection\CollectionController@newCollection');
 $router->post('/collection/update', 'Collection\CollectionController@updateCollection');
 $router->delete('/collection/delete/{id:[0-9]+}', 'Collection\CollectionController@deleteCollection');
 
 // GMSCountry
 $router->get('/showListCountry', 'GMSCountry\GMSCountryController@getCountryList');
+$router->get('/showListCountry/{id:[0-9]+}', 'GMSCountry\GMSCountryController@getCountryById');
 $router->post('/country/create', 'GMSCountry\GMSCountryController@newCountry');
 $router->post('/country/update', 'GMSCountry\GMSCountryController@updateCountry');
 $router->delete('/country/delete/{id:[0-9]+}', 'GMSCountry\GMSCountryController@deleteCountry');

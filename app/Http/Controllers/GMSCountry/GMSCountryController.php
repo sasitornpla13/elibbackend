@@ -32,6 +32,12 @@ class GMSCountryController extends BaseController
         return response()->json('200');
     }
 
+    public function getCountryById($id)
+    {
+        $result_country_id = Country::find($id);
+        return response()->json($result_country_id);
+    }
+
     public function deleteCountry($id)
     {
         // $result_country_id = Country::where('id', '=', $id)->delete();
