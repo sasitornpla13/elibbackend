@@ -12,7 +12,7 @@ class DepartmentsController extends BaseController
 
 
     public function getDepartmentList(){
-         $result_department =   Departments::all();
+         $result_department =   Departments::where('status',1)->get();
          //$result_department->count();
          return response()->json($result_department,200);
     }
@@ -42,9 +42,15 @@ class DepartmentsController extends BaseController
     }
 
 
+    // public function deleteDepartment($id) {
+    //     $result_department_id =    Departments::where('id', '=', $id)->delete();
+    //     return  response()->json("",204); 
+    // }
     public function deleteDepartment($id) {
-        $result_department_id =    Departments::where('id', '=', $id)->delete();;
-        return  response()->json("",204); 
+        $result_department_id =    Departments::find($id);
+        $result_department_id->status = 0;
+        $result_department_id->save();
+        return  response()->json(204); 
     }
 
     public function advanceSearch(Request $request) {
