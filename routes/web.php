@@ -36,3 +36,16 @@ $router->get('/showListTopic/{id:[0-9]+}', 'Topics\TopicsController@getTopicsByI
 // $router->get('/showListTopic', function () use ($router) {
 //     return str_random(32);
 // });deleteTopic
+
+
+// Collection
+$router->get('/showListCollection', 'Collection\CollectionController@getCollectionsList');
+$router->post('/collection/create', 'Collection\CollectionController@newCollection');
+$router->post('/collection/update', 'Collection\CollectionController@updateCollection');
+$router->delete('/collection/delete/{id:[0-9]+}', 'Collection\CollectionController@deleteCollection');
+
+// GMSCountry
+$router->get('/showListCountry', 'GMSCountry\GMSCountryController@getCountryList');
+$router->post('/country/create', 'GMSCountry\GMSCountryController@newCountry');
+$router->post('/country/update', 'GMSCountry\GMSCountryController@updateCountry');
+$router->delete('/country/delete/{id:[0-9]+}', 'GMSCountry\GMSCountryController@deleteCountry');
