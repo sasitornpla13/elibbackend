@@ -6,6 +6,6 @@ use Illuminate\Database\Eloquent\Model;
 
 class Country extends Model
 {
-  protected $table = "countries";
-  public $timestamps = true;
+  protected $table = "country";
+  public $timestamps = false;
 }

@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Models\topics;
+namespace App\Models\Collections;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Topics extends Model
+class Collections extends Model
 {
   protected $table = "collections";
   public $timestamps = true;
