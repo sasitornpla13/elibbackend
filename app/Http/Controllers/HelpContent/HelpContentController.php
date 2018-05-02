@@ -8,10 +8,14 @@ use Laravel\Lumen\Routing\Controller as BaseController;
 
 class HelpContentController extends BaseController
 {
-    public function getHelpContentList()
+    public function getHelpContentList($id)
     {
         // $result_helpContent = HelpContent::all();
-        $result_helpContent = HelpContent::where('status', 1)->get();
+        // $result_helpContent = HelpContent::where('status', 1)->get();
+        $result_helpContent = HelpContent::where([
+            ['status', 1],
+            ['help_id', $id]
+          ])->get();
         return response()->json($result_helpContent);
     }
 
