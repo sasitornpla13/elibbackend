@@ -64,3 +64,8 @@ $router->get('/showListHelpContent', 'HelpContent\HelpContentController@getHelpC
 $router->post('/helpContent/create', 'HelpContent\HelpContentController@newHelpContent');
 $router->post('/helpContent/update', 'HelpContent\HelpContentController@updateHelpContent');
 $router->delete('/helpContent/delete/{id:[0-9]+}', 'HelpContent\HelpContentController@deleteHelpContent');
+
+// Books
+$router->post('/books/create', 'Books\BooksController@newBooks');
+$router->post('/books/update', 'Books\BooksController@updateBooks');
+$router->delete('/books/delete/{id:[0-9]+}', 'Books\BooksController@deleteBooks');
