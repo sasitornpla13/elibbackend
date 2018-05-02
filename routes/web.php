@@ -16,7 +16,7 @@ $router->get('/', function () use ($router) {
 });
 
 $router->get('/key', function () use ($router) {
-  //  return str_random(32);
+   return str_random(32);
 });
 
 ///   Departments Section
