@@ -27,7 +27,7 @@ class DepartmentsController extends BaseController
       //  print_r($request->departmentName);
       
         $newResult                  = new Departments;
-        $newResult->department_name =$request->departmentName;  
+        $newResult->department_name =$request->department_name;  
         $newResult->status          =1;  
         $newResult->save();
         return  response()->json(200);
@@ -36,6 +36,7 @@ class DepartmentsController extends BaseController
     public function updateDepartment(Request $request){
         $result_update_department =   Departments::find($request->id);
         $result_update_department->department_name = $request->department_name;
+        $result_update_department->status = true;
         $result_update_department->save();
         return  response()->json(200); 
     }
