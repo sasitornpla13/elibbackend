@@ -23,7 +23,11 @@ class HelpCategoriesController extends BaseController
         $newResult->save();
         return response()->json('200');
     }
-
+    public function getHelpCategoriesById($id){
+  
+        $result =   Topics::find($id);
+        return response()->json($result);
+    }
     public function updateHelpCategories(Request $request)
     {
         $result_update_helpCategories = HelpCategories::find($request->id);

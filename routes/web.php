@@ -29,6 +29,7 @@ $router->post('/department/search', 'Departments\DepartmentsController@advanceSe
 
 /// Topics Section
 $router->get('/showListTopic', 'Topics\TopicsController@getTopicsList');
+$router->get('/showListTopic/{id:[0-9]+}', 'Topics\TopicsController@getTopicsById');
 $router->post('/topic/create', 'Topics\TopicsController@newTopic');
 $router->post('/topic/update', 'Topics\TopicsController@updateTopic');
 $router->delete('/topic/delete/{id:[0-9]+}', 'Topics\TopicsController@deleteTopic');
@@ -53,6 +54,8 @@ $router->delete('/country/delete/{id:[0-9]+}', 'GMSCountry\GMSCountryController@
 // Help Categories
 $router->get('/showListHelpCategories', 'HelpCategories\HelpCategoriesController@getHelpCategoriesList');
 $router->post('/helpCategories/create', 'HelpCategories\HelpCategoriesController@newHelpCategories');
+$router->get('/showListHelpCategories/{id:[0-9]+}', 'HelpCategories\HelpCategoriesController@getHelpCategoriesById');
+
 $router->post('/helpCategories/update', 'HelpCategories\HelpCategoriesController@updateHelpCategories');
 $router->delete('/helpCategories/delete/{id:[0-9]+}', 'HelpCategories\HelpCategoriesController@deleteHelpCategories');
 
