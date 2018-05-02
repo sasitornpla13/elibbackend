@@ -10,7 +10,8 @@ class CollectionController extends BaseController
 {
     public function getCollectionsList()
     {
-        $result_collections = Collections::all();
+        // $result_collections = Collections::all();
+        $result_collections = Collections::where('status', 1)->get();
         return response()->json($result_collections);
     }
 
@@ -34,7 +35,10 @@ class CollectionController extends BaseController
 
     public function deleteCollection($id)
     {
-        $result_collection_id = Collections::where('id', '=', $id)->delete();
+        // $result_collection_id = Collections::where('id', '=', $id)->delete();
+        $result_collection_id = Collections::find($id);
+        $result_collection_id->status = 0;
+        $result_collection_id->save();
         return response()->json('200');
     }
 
