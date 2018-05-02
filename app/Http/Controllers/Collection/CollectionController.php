@@ -17,7 +17,7 @@ class CollectionController extends BaseController
     public function newCollection(Request $request)
     {
         $newResult = new Collections;
-        // $newResult->id = $request->id;
+        $newResult->id = $request->id;
         $newResult->collection_name = $request->collection_name;
         $newResult->status = 1;
         $newResult->save();
