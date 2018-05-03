@@ -44,4 +44,13 @@ class BooksController extends BaseController
         return response()->json('200');
     }
 
+    public function searchAll(Request $request)
+    {
+        $result_books = Books::where('book_title', 'like', '%' . $request->text . '%')
+            ->orWhere('book_keyword', 'like', '%' . $request->text . '%')
+            ->orWhere('book_abstract', 'like', '%' . $request->text . '%')
+            ->get();
+        return response()->json($result_books);
+    }
+
 }

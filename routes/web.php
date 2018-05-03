@@ -78,3 +78,4 @@ $router->delete('/staff/delete/{id:[0-9]+}', 'Staff\StaffController@deleteStaff'
 $router->post('/books/create', 'Books\BooksController@newBooks');
 $router->post('/books/update', 'Books\BooksController@updateBooks');
 $router->delete('/books/delete/{id:[0-9]+}', 'Books\BooksController@deleteBooks');
+$router->post('/books/searchAll', 'Books\BooksController@searchAll');
