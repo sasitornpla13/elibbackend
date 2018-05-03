@@ -47,8 +47,7 @@ class BooksController extends BaseController
 
     public function searchAll(Request $request)
     {
-        $result_books = Books::where()
-            ->orWhere('book_title', 'like', '%' . $request->text . '%')
+        $result_books = Books::where('book_title', 'like', '%' . $request->text . '%')
             ->orWhere('book_keyword', 'like', '%' . $request->text . '%')
             ->orWhere('book_abstract', 'like', '%' . $request->text . '%')
             ->get();
@@ -57,23 +56,31 @@ class BooksController extends BaseController
 
     public function searchByType(Request $request)
     {
-        $result = BookCollection::where('type', $request->type)->where('map_id', $request->id)->get();
-        return response()->json($result);
+        // $result = BookCollection::where('type', $request->type)->where('map_id', $request->id)->get();
+        // return response()->json($result);
 
-        if ($request->year != '0') {
-            $conditions[] = ['books.public_start_date', 'like', '%' . $request->year . '%'];
-        }
+        // if ($request->year != '0') {
+        //     $conditions[] = ['Books.public_start_date', 'like', '%' . $request->year . '%'];
+        // }
 
-        if ($request->department != '0') {
-            $conditions[] = ['book_collection.map_id', '=', $request->department];
-        }
+        // if ($request->department != '0') {
+        //     $conditions[] = ['book_collection.map_id', '=', $request->department];
+        // }
 
-        if ($request->country != '0') {
-            $conditions[] = ['country.', '=', $request->country];
-        }
-        $result = BookCollection::where($conditions)
-            ->leftJoin('books', 'BookCollection.book_id', '=', 'books.id')
-            ->get();
+        // if ($request->country != '0') {
+        //     $conditions[] = ['country.', '=', $request->country];
+        // }
+
+        // if ($request->text != '0') {
+        //     $conditions[] = ['Books.book_title.', 'like', '%' . $request->text . '%'];
+        //     $conditions[] = ['Books.book_keyword.', 'like', '%' . $request->text . '%'];
+        //     $conditions[] = ['Books.book_abstract.', 'like', '%' . $request->text . '%'];
+        // }
+
+        // $result = BookCollection::where($conditions)
+        //     ->leftJoin('Books', 'book_collection.book_id', '=', 'Books.id')
+        //     ->get();
+        // return response()->json($result);
     }
 
 }
