@@ -24,6 +24,8 @@ class StaffController extends BaseController
     public function newStaff(Request $request)
     {
         $newResult = new Staff;
+        $newResult->username = $request->username;
+        $newResult->password = $request->password;
         $newResult->f_name = $request->f_name;
         $newResult->l_name = $request->l_name;
         $newResult->department_id = $request->department_id;
@@ -35,6 +37,8 @@ class StaffController extends BaseController
     public function updateStaff(Request $request)
     {
         $result_update_staff = Staff::find($request->id);
+        $result_update_staff->username = $request->username;
+        $result_update_staff->password = $request->password;
         $result_update_staff->f_name = $request->f_name;
         $result_update_staff->l_name = $request->l_name;
         $result_update_staff->department_id = $request->department_id;
