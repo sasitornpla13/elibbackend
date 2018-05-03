@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Books;
 
 use App\Models\Books\Books;
+use App\Models\BookCollection\BookCollection;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Routing\Controller as BaseController;
 
@@ -46,11 +47,33 @@ class BooksController extends BaseController
 
     public function searchAll(Request $request)
     {
-        $result_books = Books::where('book_title', 'like', '%' . $request->text . '%')
+        $result_books = Books::where()
+            ->orWhere('book_title', 'like', '%' . $request->text . '%')
             ->orWhere('book_keyword', 'like', '%' . $request->text . '%')
             ->orWhere('book_abstract', 'like', '%' . $request->text . '%')
             ->get();
         return response()->json($result_books);
+    }
+
+    public function searchByType(Request $request)
+    {
+        $result = BookCollection::where('type', $request->type)->where('map_id', $request->id)->get();
+        return response()->json($result);
+
+        if ($request->year != '0') {
+            $conditions[] = ['books.public_start_date', 'like', '%' . $request->year . '%'];
+        }
+
+        if ($request->department != '0') {
+            $conditions[] = ['book_collection.map_id', '=', $request->department];
+        }
+
+        if ($request->country != '0') {
+            $conditions[] = ['country.', '=', $request->country];
+        }
+        $result = BookCollection::where($conditions)
+            ->leftJoin('books', 'BookCollection.book_id', '=', 'books.id')
+            ->get();
     }
 
 }
