@@ -67,6 +67,13 @@ $router->post('/helpContent/create', 'HelpContent\HelpContentController@newHelpC
 $router->post('/helpContent/update', 'HelpContent\HelpContentController@updateHelpContent');
 $router->delete('/helpContent/delete/{id:[0-9]+}', 'HelpContent\HelpContentController@deleteHelpContent');
 
+// Staff
+$router->get('/showListStaff', 'Staff\StaffController@getStaffList');
+$router->get('/showListStaff/{id:[0-9]+}', 'Staff\StaffController@getStaffById');
+$router->post('/staff/create', 'Staff\StaffController@newStaff');
+$router->post('/staff/update', 'Staff\StaffController@updateStaff');
+$router->delete('/staff/delete/{id:[0-9]+}', 'Staff\StaffController@deleteStaff');
+
 // Books
 $router->post('/books/create', 'Books\BooksController@newBooks');
 $router->post('/books/update', 'Books\BooksController@updateBooks');
